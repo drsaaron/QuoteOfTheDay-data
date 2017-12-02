@@ -38,7 +38,7 @@ public class DatasourceConfiguration {
     
     private final int poolSize = 5;
     
-    @Bean(name = "quoteOfTheDataDataSource", destroyMethod = "close")
+    @Bean(name = "quoteOfTheDataDataSource", destroyMethod = "")
     @Primary
     public DataSource getDataSource() {
         
