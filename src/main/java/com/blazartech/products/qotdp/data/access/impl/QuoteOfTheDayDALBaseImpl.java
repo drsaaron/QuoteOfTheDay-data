@@ -26,8 +26,10 @@ abstract public class QuoteOfTheDayDALBaseImpl {
         history.setHistoryByYear(historyByYear);
         
         Calendar cal = Calendar.getInstance();
-        for (QuoteOfTheDay qotd : qotdCollection) {
+        qotdCollection.stream().map((qotd) -> {
             cal.setTime(qotd.getRunDate());
+            return qotd;
+        }).forEachOrdered((qotd) -> {
             int year = cal.get(Calendar.YEAR);
             
             Collection<QuoteOfTheDay> quoteDaySet = historyByYear.get(year);
@@ -36,7 +38,7 @@ abstract public class QuoteOfTheDayDALBaseImpl {
                 historyByYear.put(year, quoteDaySet);
             }
             quoteDaySet.add(qotd);
-        }
+        });
         
         return history;
     }
