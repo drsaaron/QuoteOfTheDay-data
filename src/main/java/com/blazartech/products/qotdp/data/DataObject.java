@@ -5,6 +5,7 @@
 
 package com.blazartech.products.qotdp.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
@@ -49,6 +50,7 @@ public abstract class DataObject implements Serializable {
     }
 
     /** Utility field used by bound properties. */
+    @JsonIgnore
     protected PropertyChangeSupport propertyChangeSupport =  new PropertyChangeSupport(this);
 
     /** Adds a PropertyChangeListener to the listener list.
