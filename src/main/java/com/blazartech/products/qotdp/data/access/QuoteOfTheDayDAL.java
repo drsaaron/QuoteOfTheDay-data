@@ -109,6 +109,14 @@ public interface QuoteOfTheDayDAL {
     public Collection<QuoteOfTheDay> getQuoteOfTheDayInDateRange(int quoteNumber, Date startDate, Date endDate);
 
     /**
+     * get all quotes of the day in a date range
+     * @param startDate
+     * @param endDate
+     * @return 
+     */
+    public Collection<QuoteOfTheDay> getQuoteOfTheDayInDateRange(Date startDate, Date endDate);
+    
+    /**
      * get all quotes for a given source code.
      * @param sourceCode
      * @return
