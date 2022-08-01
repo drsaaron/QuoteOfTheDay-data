@@ -9,15 +9,25 @@ import com.blazartech.products.qotdp.data.QuoteOfTheDay;
 import com.blazartech.products.qotdp.data.QuoteOfTheDayHistory;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 /**
  *
  * @author scott
  */
 abstract public class QuoteOfTheDayDALBaseImpl {
+
+    private final Calendar calendar = Calendar.getInstance();
+    
+    private int getYear(Date d) {
+        calendar.setTime(d);
+        return calendar.get(Calendar.YEAR);
+    }
     
     protected QuoteOfTheDayHistory buildQuoteOfTheDayHistory(Collection<QuoteOfTheDay> qotdCollection, int quoteNumber) {
         QuoteOfTheDayHistory history = new QuoteOfTheDayHistory();
@@ -25,21 +35,18 @@ abstract public class QuoteOfTheDayDALBaseImpl {
         history.setQuoteNumber(quoteNumber);
         history.setHistoryByYear(historyByYear);
         
-        Calendar cal = Calendar.getInstance();
-        qotdCollection.stream().map((qotd) -> {
-            cal.setTime(qotd.getRunDate());
-            return qotd;
-        }).forEachOrdered((qotd) -> {
-            int year = cal.get(Calendar.YEAR);
-            
-            Collection<QuoteOfTheDay> quoteDaySet = historyByYear.get(year);
-            if (quoteDaySet == null) {
-                quoteDaySet = new TreeSet<>();
-                historyByYear.put(year, quoteDaySet);
-            }
-            quoteDaySet.add(qotd);
-        });
+        // initialize empty sets for each year we have QOTD for
+        qotdCollection.stream()
+                .map(qotd -> getYear(qotd.getRunDate()))
+                .collect(Collectors.toSet()) // ensures unique values
+                .forEach(y -> {
+                    Set<QuoteOfTheDay> qotdSet = new TreeSet<>();
+                    historyByYear.put(y, qotdSet);
+                });
         
+        // populate the lists
+        qotdCollection.forEach(qotd -> historyByYear.get(getYear(qotd.getRunDate())).add(qotd));
+                
         return history;
     }
 }
