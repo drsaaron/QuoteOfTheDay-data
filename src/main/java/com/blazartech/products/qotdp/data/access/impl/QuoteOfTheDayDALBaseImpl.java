@@ -39,10 +39,7 @@ abstract public class QuoteOfTheDayDALBaseImpl {
         qotdCollection.stream()
                 .map(qotd -> getYear(qotd.getRunDate()))
                 .collect(Collectors.toSet()) // ensures unique values
-                .forEach(y -> {
-                    Set<QuoteOfTheDay> qotdSet = new TreeSet<>();
-                    historyByYear.put(y, qotdSet);
-                });
+                .forEach(y -> historyByYear.put(y, new TreeSet<>()));
         
         // populate the lists
         qotdCollection.forEach(qotd -> historyByYear.get(getYear(qotd.getRunDate())).add(qotd));
