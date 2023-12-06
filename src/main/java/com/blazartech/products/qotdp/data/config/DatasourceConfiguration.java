@@ -13,12 +13,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 /**
  *
  * @author scott
  */
 @Configuration
+@Profile("!unittest")
 public class DatasourceConfiguration {
     
     @Value("${com.blazartech.products.qotdp.data.access.impl.spring.ds.userId}")
