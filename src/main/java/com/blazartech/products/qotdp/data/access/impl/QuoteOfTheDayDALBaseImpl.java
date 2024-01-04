@@ -8,9 +8,7 @@ package com.blazartech.products.qotdp.data.access.impl;
 import com.blazartech.products.qotdp.data.QuoteOfTheDay;
 import com.blazartech.products.qotdp.data.QuoteOfTheDayHistory;
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
@@ -21,8 +19,6 @@ import java.util.stream.Collectors;
  * @author scott
  */
 abstract public class QuoteOfTheDayDALBaseImpl {
-
-    private final Calendar calendar = Calendar.getInstance();
     
     private int getYear(LocalDate d) {
         return d.getYear();
