@@ -7,6 +7,7 @@ package com.blazartech.products.qotdp.data.access.impl;
 
 import com.blazartech.products.qotdp.data.QuoteOfTheDay;
 import com.blazartech.products.qotdp.data.QuoteOfTheDayHistory;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -23,9 +24,8 @@ abstract public class QuoteOfTheDayDALBaseImpl {
 
     private final Calendar calendar = Calendar.getInstance();
     
-    private int getYear(Date d) {
-        calendar.setTime(d);
-        return calendar.get(Calendar.YEAR);
+    private int getYear(LocalDate d) {
+        return d.getYear();
     }
     
     protected QuoteOfTheDayHistory buildQuoteOfTheDayHistory(Collection<QuoteOfTheDay> qotdCollection, int quoteNumber) {

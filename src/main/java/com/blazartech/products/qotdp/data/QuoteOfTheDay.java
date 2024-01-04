@@ -5,6 +5,7 @@
 
 package com.blazartech.products.qotdp.data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -42,7 +43,7 @@ public class QuoteOfTheDay extends DataObject implements Comparable<QuoteOfTheDa
         propertyChangeSupport.firePropertyChange(PROP_QUOTE, oldQuote, quoteNumber);
     }
 
-    private Date runDate;
+    private LocalDate runDate;
     public static final String PROP_RUNDATE = "runDate";
 
     /**
@@ -50,7 +51,7 @@ public class QuoteOfTheDay extends DataObject implements Comparable<QuoteOfTheDa
      *
      * @return the value of runDate
      */
-    public Date getRunDate() {
+    public LocalDate getRunDate() {
         return runDate;
     }
 
@@ -59,8 +60,8 @@ public class QuoteOfTheDay extends DataObject implements Comparable<QuoteOfTheDa
      *
      * @param runDate new value of runDate
      */
-    public void setRunDate(Date runDate) {
-        Date oldRunDate = this.runDate;
+    public void setRunDate(LocalDate runDate) {
+        LocalDate oldRunDate = this.runDate;
         this.runDate = runDate;
         propertyChangeSupport.firePropertyChange(PROP_RUNDATE, oldRunDate, runDate);
     }

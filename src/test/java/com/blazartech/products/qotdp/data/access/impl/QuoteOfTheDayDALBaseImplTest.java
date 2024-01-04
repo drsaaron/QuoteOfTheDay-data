@@ -9,6 +9,7 @@ import com.blazartech.products.qotdp.data.QuoteOfTheDayHistory;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -72,14 +73,10 @@ public class QuoteOfTheDayDALBaseImplTest {
     public void tearDown() {
     }
 
-    private Date parseDate(String d) {
-        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            return sdf.parse(d);
-        } catch (ParseException e) {
-            throw new RuntimeException("error parsing date: " + e.getMessage(), e);
-        }
+    private LocalDate parseDate(String d) {
+        return LocalDate.parse(d);
     }
+    
     /**
      * Test of buildQuoteOfTheDayHistory method, of class QuoteOfTheDayDALBaseImpl.
      */

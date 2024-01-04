@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.blazartech</groupId>
     <artifactId>QuoteOfTheDay-data</artifactId>
-    <version>1.46-RELEASE</version>
+    <version>1.47-RELEASE</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -78,6 +78,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+  
     </dependencies>
 
     <repositories>

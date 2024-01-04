@@ -7,7 +7,8 @@ package com.blazartech.products.qotdp.data;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.Date;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import java.time.LocalDate;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertFalse;
@@ -55,9 +56,11 @@ public class QuoteOfTheDayTest {
         QuoteOfTheDay qotd = new QuoteOfTheDay();
         qotd.setNumber(1);
         qotd.setQuoteNumber(1);
-        qotd.setRunDate(new Date());
+        qotd.setRunDate(LocalDate.now());
         
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        
         String json = mapper.writeValueAsString(qotd);
         
         assertNotNull(json);
