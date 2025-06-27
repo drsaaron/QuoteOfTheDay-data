@@ -9,8 +9,8 @@ import com.blazartech.products.qotdp.data.Quote;
 import com.blazartech.products.qotdp.data.QuoteOfTheDay;
 import com.blazartech.products.qotdp.data.QuoteOfTheDayHistory;
 import com.blazartech.products.qotdp.data.QuoteSourceCode;
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 
 /**
  *
@@ -66,7 +66,7 @@ public interface QuoteOfTheDayDAL {
      * @param runDate desired effective date
      * @return
      */
-    public QuoteOfTheDay getQuoteOfTheDay(Date runDate);
+    public QuoteOfTheDay getQuoteOfTheDay(LocalDate runDate);
 
     /**
      * update a quote of the day.
@@ -106,7 +106,7 @@ public interface QuoteOfTheDayDAL {
      * @param endDate
      * @return
      */
-    public Collection<QuoteOfTheDay> getQuoteOfTheDayInDateRange(int quoteNumber, Date startDate, Date endDate);
+    public Collection<QuoteOfTheDay> getQuoteOfTheDayInDateRange(int quoteNumber, LocalDate startDate, LocalDate endDate);
 
     /**
      * get all quotes of the day in a date range
@@ -114,7 +114,7 @@ public interface QuoteOfTheDayDAL {
      * @param endDate
      * @return 
      */
-    public Collection<QuoteOfTheDay> getQuoteOfTheDayInDateRange(Date startDate, Date endDate);
+    public Collection<QuoteOfTheDay> getQuoteOfTheDayInDateRange(LocalDate startDate, LocalDate endDate);
     
     /**
      * get all quotes for a given source code.
