@@ -6,7 +6,6 @@
 package com.blazartech.products.qotdp.data;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  *
@@ -35,7 +34,7 @@ public class QuoteOfTheDay extends DataObject implements Comparable<QuoteOfTheDa
     /**
      * Set the value of quote
      *
-     * @param quote new value of quote
+     * @param quoteNumber new value of quote
      */
     public void setQuoteNumber(int quoteNumber) {
         int oldQuote = this.quoteNumber;
