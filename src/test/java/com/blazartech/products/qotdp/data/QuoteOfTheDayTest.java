@@ -6,26 +6,26 @@
 package com.blazartech.products.qotdp.data;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.time.LocalDate;
-import org.junit.After;
-import org.junit.AfterClass;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import tools.jackson.databind.ObjectMapper;
 
 /**
  *
  * @author scott
  */
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class QuoteOfTheDayTest {
     
     static final Logger logger = LoggerFactory.getLogger(QuoteOfTheDayTest.class);
@@ -33,19 +33,19 @@ public class QuoteOfTheDayTest {
     public QuoteOfTheDayTest() {
     }
     
-    @BeforeClass
+    @BeforeAll
     public static void setUpClass() {
     }
     
-    @AfterClass
+    @AfterAll
     public static void tearDownClass() {
     }
     
-    @Before
+    @BeforeEach
     public void setUp() {
     }
     
-    @After
+    @AfterEach
     public void tearDown() {
     }
 
@@ -59,7 +59,7 @@ public class QuoteOfTheDayTest {
         qotd.setRunDate(LocalDate.now());
         
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
+     //   mapper.registerModule(new JavaTimeModule());
         
         String json = mapper.writeValueAsString(qotd);
         
