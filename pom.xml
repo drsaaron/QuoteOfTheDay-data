@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.blazartech</groupId>
     <artifactId>QuoteOfTheDay-data</artifactId>
-    <version>1.71-RELEASE</version>
+    <version>1.72-RELEASE</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -11,9 +11,9 @@
     </properties>
     
     <parent>  
-        <groupId>org.springframework.boot</groupId>           
-        <artifactId>spring-boot-starter-parent</artifactId>           
-        <version>4.1.0-M4</version>     
+        <groupId>com.blazartech</groupId>           
+        <artifactId>blazarjavaparent</artifactId>           
+        <version>1.22-RELEASE</version>     
     </parent> 
     
     <dependencies>
@@ -77,11 +77,6 @@
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
   
     </dependencies>

@@ -5,8 +5,6 @@
  */
 package com.blazartech.products.qotdp.data;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.time.LocalDate;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -50,7 +48,7 @@ public class QuoteOfTheDayTest {
     }
 
     @Test
-    public void testSerialize() throws JsonProcessingException {
+    public void testSerialize() {
         logger.info("testSerialize");
         
         QuoteOfTheDay qotd = new QuoteOfTheDay();
